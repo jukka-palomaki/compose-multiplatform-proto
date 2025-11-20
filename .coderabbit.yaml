@@ -1,7 +1,11 @@
-language: auto
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+
+language: en-US
+
 reviews:
-  auto_review: true
-  review_on:
-    - pull_request_opened
-    - pull_request_updated
-  approve_by_default: false
+  profile: chill
+  high_level_summary: true
+  auto_review:
+    enabled: true
+    auto_incremental_review: true
+    drafts: false
