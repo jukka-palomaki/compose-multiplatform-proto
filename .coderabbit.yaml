@@ -1,0 +1,7 @@
+language: auto
+reviews:
+  auto_review: true
+  review_on:
+    - pull_request_opened
+    - pull_request_updated
+  approve_by_default: false
