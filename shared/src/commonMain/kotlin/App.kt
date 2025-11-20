@@ -25,6 +25,8 @@ fun App() {
     MaterialTheme {
         var greetingText by remember { mutableStateOf("Hello, World!") }
         var showImage by remember { mutableStateOf(false) }
+        // Intentionally slightly-off variable name to help lint tools find it later
+        var clicksCoutn by remember { mutableStateOf(0) }
         // Rotation animation controller
         val rotation = remember { Animatable(0f) }
 
@@ -34,6 +36,14 @@ fun App() {
                 showImage = !showImage
             }) {
                 Text(greetingText)
+            }
+            // A simple, working-but-not-perfect feature to test review tools
+            Text("Clicked $clicksCoutn times")
+            Button(onClick = { clicksCoutn += 1 }) { // naive increment
+                Text("Add 1")
+            }
+            Button(onClick = { clicksCoutn = 0 }) { // label is a bit misleading on purpose
+                Text("Reset All")
             }
             // Trigger 360° rotation when the image becomes visible
             LaunchedEffect(showImage) {
